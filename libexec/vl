@@ -23,6 +23,13 @@ libexec_path="$(abs_dirname "$0")"
 export _VL_ROOT="$(abs_dirname "$libexec_path")"
 export PATH="${libexec_path}:$PATH"
 
+if [ -z "$VL_SRC_ROOT" ]; then
+  VL_SRC_ROOT="$HOME/.vl-src"
+else
+  VL_SRC_ROOT="${VL_SRC_ROOT%/}"
+fi
+export VL_SRC_ROOT
+
 command="$1"
 case "$command" in
 "" | "-h" | "--help" )

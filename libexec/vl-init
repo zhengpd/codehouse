@@ -55,6 +55,8 @@ if [ -z "$print" ]; then
   exit 1
 fi
 
+mkdir -p "${VL_SRC_ROOT}"
+
 echo "export PATH=\"\${PATH}:${_VL_ROOT}/bin\""
 
 case "$shell" in

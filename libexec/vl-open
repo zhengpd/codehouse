@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+
+error() {
+    echo "VL: $1" >&2
+    exit 1
+}
+
+[ ! -d "$VL_SRC_ROOT" ] && error "cannot find directory \`$VL_SRC_ROOT'"
+
+[ -z "$1" ] && error "must specify a library to open"
+
+if [ -z "$EDITOR" ]; then
+    _VL_EDITOR="vim"
+else
+    _VL_EDITOR="$EDITOR"
+fi
+
+library=$(ls $VL_SRC_ROOT | grep -i $1 | head -1)
+[ -z "$library" ] && error "no library found matching the name \`$1'"
+
+$_VL_EDITOR "$VL_SRC_ROOT/$library"
