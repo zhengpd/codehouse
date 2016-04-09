@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Usage: vl open LIBRARY_NAME
+# Summary: Open library with EDITOR
+# Help: Open library with EDITOR. The default editor is Vim.
+
 set -e
 
 error() {

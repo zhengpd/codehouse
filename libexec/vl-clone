@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Usage: vl clone REPO_URL
+# Summary: Clone the remote repo into local libraries
+# Help: The remote repo will be cloned under VL_SRC_ROOT, which defaults to ~/.vl-src
+
 set -e
 
 if [ ! -d "$VL_SRC_ROOT" ]; then

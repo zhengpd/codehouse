@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Usage: vl readme LIBRARY_NAME
+# Summary: Open library's README file
+
 set -e
 
 error() {
