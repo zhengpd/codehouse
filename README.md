@@ -11,6 +11,7 @@
 ```bash
 $ vl clone https://github.com/basecamp/sub.git
 $ vl open sub
+$ vl readme sub
 
 # Or specify the editor to open with (defaults to vim)
 $ EDITOR=subl vl open sub

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+error() {
+    echo "VL: $1" >&2
+    exit 1
+}
+
+[ -z "$1" ] && error "must specify a library name"
+
+exec vl-open $1 readme
