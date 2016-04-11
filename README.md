@@ -3,8 +3,8 @@
 ## Installation
 
     $ git clone https://github.com/zhengpd/vl.git ~/.vl
-    $ echo 'export VL_ROOT="$HOME/.vl"' >> ~/.bashrc
-    $ echo 'eval "($VL_ROOT/bin/vl init -)"' >> ~/.bashrc
+    $ echo 'export VL_ROOT="$HOME/.vl"' >> ~/.bashrc # or ~/.zshrc 
+    $ echo 'eval "$($VL_ROOT/bin/vl init -)"' >> ~/.bashrc # or ~/.zshrc
 
 ## Usage
 
