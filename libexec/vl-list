@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: vl list
+# Summary: List all available libraries
+# Help: This command takes no argument.
+
+set -e
+
+if [ ! -d "$VL_SRC_ROOT" ]; then
+    echo "vl: cannot find directory \`$VL_SRC_ROOT'" >&2
+    exit 1
+fi
+
+command ls "$VL_SRC_ROOT"
