@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Usage: vl commands
-# Summary: List all vl commands
-# Help: This command is mostly used for autocompletion in various shells, and for `vl help`.
+# Usage: codehouse commands
+# Summary: List all codehouse commands
+# Help: This command is mostly used for autocompletion in various shells, and for `codehouse help`.
 # Also, this command helps find commands that are named the same as potentially builtin shell commands (which, cd, etc)
 
 set -e
 
-# Provide vl completions
+# Provide codehouse completions
 if [ "$1" = "--complete" ]; then
   echo --sh
   echo --no-sh
@@ -24,8 +24,8 @@ fi
 shopt -s nullglob
 
 { for path in ${PATH//:/$'\n'}; do
-    for command in "${path}/vl-"*; do
-      command="${command##*vl-}"
+    for command in "${path}/codehouse-"*; do
+      command="${command##*codehouse-}"
       if [ -n "$sh" ]; then
         if [ ${command:0:3} = "sh-" ]; then
           echo ${command##sh-}

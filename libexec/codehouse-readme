@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Usage: vl readme LIBRARY_NAME
+# Usage: codehouse readme LIBRARY_NAME
 # Summary: Open library's README file
 
 set -e
 
 error() {
-    echo "VL: $1" >&2
+    echo "CODEHOUSE: $1" >&2
     exit 1
 }
 
 [ -z "$1" ] && error "must specify a library name"
 
-exec vl-open $1 readme
+exec codehouse-open $1 readme

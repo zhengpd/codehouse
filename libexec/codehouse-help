@@ -7,7 +7,7 @@ print_summaries() {
   local longest_command=0
   local command
 
-  for command in $(vl-commands); do
+  for command in $(codehouse-commands); do
     local file="$(command_path "$command")"
     if [ ! -h "$file" ]; then
       local summary="$(summary "$file")"
@@ -47,7 +47,7 @@ print_help() {
 }
 
 command_path() {
-  command -v "vl-$command" || command -v "vl-sh-$command" || true
+  command -v "codehouse-$command" || command -v "codehouse-sh-$command" || true
 }
 
 summary() {
@@ -74,20 +74,20 @@ truncate() {
   fi
 }
 
-# Provide vl completions
+# Provide codehouse completions
 if [ "$1" = "--complete" ]; then
-  exec "vl-commands"
+  exec "codehouse-commands"
   exit
 fi
 
 command="$1"
 case "$command" in
-"") echo "Usage: vl <command> [<args>]
+"") echo "Usage: codehouse <command> [<args>]
 
-Some useful vl commands are:
+Some useful codehouse commands are:
 $(print_summaries)
 
-See 'vl help <command>' for information on a specific command."
+See 'codehouse help <command>' for information on a specific command."
 ;;
 *)
   file="$(command_path "$command")"
@@ -95,7 +95,7 @@ See 'vl help <command>' for information on a specific command."
   if [ -n "$file" ]; then
     print_help "$file"
   else
-    echo "vl: no such command \`$command'" >&2
+    echo "codehouse: no such command \`$command'" >&2
     exit 1
   fi
 esac

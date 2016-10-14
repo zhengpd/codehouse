@@ -1,23 +1,23 @@
-# vl: a simple way to manage local repos of vendor libraries
+# codehouse: a simple way to manage local repos of vendor libraries
 
 ## Installation
 
-    $ git clone https://github.com/zhengpd/vl.git ~/.vl
-    $ echo 'export VL_ROOT="$HOME/.vl"' >> ~/.bashrc # or ~/.zshrc 
-    $ echo 'eval "$($VL_ROOT/bin/vl init -)"' >> ~/.bashrc # or ~/.zshrc
+    $ git clone https://github.com/zhengpd/codehouse.git ~/.codehouse
+    $ echo 'export CODEHOUSE_ROOT="$HOME/.codehouse"' >> ~/.bashrc # or ~/.zshrc
+    $ echo 'eval "$($CODEHOUSE_ROOT/bin/codehouse init -)"' >> ~/.bashrc # or ~/.zshrc
 
 ## Usage
 
 ```bash
-$ vl clone https://github.com/basecamp/sub.git
-$ vl open sub
-$ vl readme sub
+$ codehouse clone https://github.com/basecamp/sub.git
+$ codehouse open sub
+$ codehouse readme sub
 
 # Or specify the editor to open with (defaults to vim)
-$ EDITOR=subl vl open sub
+$ EDITOR=subl codehouse open sub
 
-# Use a different libraries root (defaults to ~/.vl-src)
-$ VL_SRC_ROOT="~/another-src" vl open sub
+# Use a different libraries root (defaults to ~/.codehouse-src)
+$ CODEHOUSE_SRC_ROOT="~/another-src" codehouse open sub
 ```
 
 ## Credits

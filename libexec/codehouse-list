@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: codehouse list
+# Summary: List all available libraries
+# Help: This command takes no argument.
+
+set -e
+
+if [ ! -d "$CODEHOUSE_SRC_ROOT" ]; then
+    echo "codehouse: cannot find directory \`$CODEHOUSE_SRC_ROOT'" >&2
+    exit 1
+fi
+
+command ls "$CODEHOUSE_SRC_ROOT"

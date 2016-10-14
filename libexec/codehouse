@@ -20,25 +20,25 @@ abs_dirname() {
 }
 
 libexec_path="$(abs_dirname "$0")"
-export _VL_ROOT="$(abs_dirname "$libexec_path")"
+export _CODEHOUSE_ROOT="$(abs_dirname "$libexec_path")"
 export PATH="${libexec_path}:$PATH"
 
-if [ -z "$VL_SRC_ROOT" ]; then
-  VL_SRC_ROOT="$HOME/.vl-src"
+if [ -z "$CODEHOUSE_SRC_ROOT" ]; then
+  CODEHOUSE_SRC_ROOT="$HOME/.codehouse-src"
 else
-  VL_SRC_ROOT="${VL_SRC_ROOT%/}"
+  CODEHOUSE_SRC_ROOT="${CODEHOUSE_SRC_ROOT%/}"
 fi
-export VL_SRC_ROOT
+export CODEHOUSE_SRC_ROOT
 
 command="$1"
 case "$command" in
 "" | "-h" | "--help" )
-  exec vl-help
+  exec codehouse-help
   ;;
 * )
-  command_path="$(command -v "vl-$command" || true)"
+  command_path="$(command -v "codehouse-$command" || true)"
   if [ ! -x "$command_path" ]; then
-    echo "vl: no such command \`$command'" >&2
+    echo "codehouse: no such command \`$command'" >&2
     exit 1
   fi
 

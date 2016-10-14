@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Usage: codehouse clone REPO_URL
+# Summary: Clone the remote repo into local libraries
+# Help: The remote repo will be cloned under CODEHOUSE_SRC_ROOT, which defaults to ~/.codehouse-src
+
+set -e
+
+if [ ! -d "$CODEHOUSE_SRC_ROOT" ]; then
+    echo "codehouse: cannot find directory \`$CODEHOUSE_SRC_ROOT'" >&2
+    exit 1
+fi
+
+cd "$CODEHOUSE_SRC_ROOT"
+git clone "$1"

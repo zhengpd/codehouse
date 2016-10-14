@@ -2,17 +2,17 @@ if [[ ! -o interactive ]]; then
     return
 fi
 
-compctl -K _vl vl
+compctl -K _codehouse codehouse
 
-_vl() {
+_codehouse() {
   local word words completions
   read -cA words
   word="${words[2]}"
 
   if [ "${#words}" -eq 2 ]; then
-    completions="$(vl commands)"
+    completions="$(codehouse commands)"
   else
-    completions="$(vl completions "${word}")"
+    completions="$(codehouse completions "${word}")"
   fi
 
   reply=("${(ps:\n:)completions}")

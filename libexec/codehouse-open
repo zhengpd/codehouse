@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
-# Usage: vl open LIBRARY_NAME
+# Usage: codehouse open LIBRARY_NAME
 # Summary: Open library with EDITOR
 # Help: Open library with EDITOR. The default editor is Vim.
 
 set -e
 
 error() {
-    echo "VL: $1" >&2
+    echo "CODEHOUSE: $1" >&2
     exit 1
 }
 
-[ ! -d "$VL_SRC_ROOT" ] && error "cannot find directory \`$VL_SRC_ROOT'"
+[ ! -d "$CODEHOUSE_SRC_ROOT" ] && error "cannot find directory \`$CODEHOUSE_SRC_ROOT'"
 
 [ -z "$1" ] && error "must specify a library to open"
 
 if [ -z "$EDITOR" ]; then
-    _VL_EDITOR="vim"
+    _CODEHOUSE_EDITOR="vim"
 else
-    _VL_EDITOR="$EDITOR"
+    _CODEHOUSE_EDITOR="$EDITOR"
 fi
 
-lib_name=$(ls $VL_SRC_ROOT | grep -i $1 | head -1)
+lib_name=$(ls $CODEHOUSE_SRC_ROOT | grep -i $1 | head -1)
 [ -z "$lib_name" ] && error "no library found matching the name \`$1'"
 
-lib_path="$VL_SRC_ROOT/$lib_name"
+lib_path="$CODEHOUSE_SRC_ROOT/$lib_name"
 target="$lib_path"
 
 if [ ! -z "$2" ]; then
@@ -37,4 +37,4 @@ if [ ! -z "$2" ]; then
     fi
 fi
 
-$_VL_EDITOR $target
+$_CODEHOUSE_EDITOR $target

@@ -45,30 +45,30 @@ if [ -z "$print" ]; then
     ;;
   esac
 
-  { echo "# Load vl automatically by adding"
+  { echo "# Load codehouse automatically by adding"
     echo "# the following to ${profile}:"
     echo
-    echo "eval \"\$(${_VL_ROOT}/bin/vl init -)\""
+    echo "eval \"\$(${_CODEHOUSE_ROOT}/bin/codehouse init -)\""
     echo
   } >&2
 
   exit 1
 fi
 
-mkdir -p "${VL_SRC_ROOT}"
+mkdir -p "${CODEHOUSE_SRC_ROOT}"
 
-echo "export PATH=\"\${PATH}:${_VL_ROOT}/bin\""
+echo "export PATH=\"\${PATH}:${_CODEHOUSE_ROOT}/bin\""
 
 case "$shell" in
 bash | zsh )
-  echo "source \"$root/completions/vl.${shell}\""
+  echo "source \"$root/completions/codehouse.${shell}\""
   ;;
 esac
 
-commands=(`vl commands --sh`)
+commands=(`codehouse commands --sh`)
 IFS="|"
 cat <<EOS
-_vl_wrapper() {
+_codehouse_wrapper() {
   local command="\$1"
   if [ "\$#" -gt 0 ]; then
     shift
@@ -76,9 +76,9 @@ _vl_wrapper() {
 
   case "\$command" in
   ${commands[*]})
-    eval \`vl "sh-\$command" "\$@"\`;;
+    eval \`codehouse "sh-\$command" "\$@"\`;;
   *)
-    command vl "\$command" "\$@";;
+    command codehouse "\$command" "\$@";;
   esac
 }
 EOS
@@ -88,9 +88,9 @@ EOS
 # fix both cases here by letting zsh have a function, and bash have its alias.
 case "$shell" in
 bash )
-  echo "alias vl=_vl_wrapper"
+  echo "alias codehouse=_codehouse_wrapper"
   ;;
 zsh )
-  echo "vl=_vl_wrapper"
+  echo "codehouse=_codehouse_wrapper"
   ;;
 esac
