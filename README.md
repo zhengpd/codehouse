@@ -1,4 +1,8 @@
-# codehouse: a simple way to manage local repos of vendor libraries
+# Codehouse
+
+## Description
+
+Codehouse is designed as a command line tool for managing source codes.
 
 ## Installation
 
